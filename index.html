@@ -1,0 +1,85 @@
+<html>
+	<head>
+		<meta name="viewport" content=
+"width=device-width, initial-scale=1">
+		<style type="text/css">
+			.blk{
+				background:black;
+			}
+			.wht{
+				background:white;
+			}
+			.gr{
+				background:grey;
+			}
+			.rd{
+				background:red;
+			}
+			.ylw{
+				background:yellow;
+			}
+			.grn{
+				background:green;
+			}
+			.bl{
+				background:blue;
+			}
+			.orn{
+				background:orange;
+			}
+			.pnk{
+				background:pink;
+			}
+			td{
+				margin:0px;
+				border:0px;
+			}
+			tr{
+				padding:0px;
+				margin:0px;
+				border:0px;
+			}
+			textarea{
+				margin:0px;
+				width:100%;
+			}
+			table{
+				border-spacing:0px;
+			}
+			input[type=number]{
+				width:31%;
+				margin:0px;
+			}
+			.dcd{
+				width:20%:
+				margin:0px;
+			}
+		</style>
+		<title>SquarePic</title>
+	</head>
+	<body>
+		<script type="text/javascript" src="sp.js"></script>
+		Введите код картинки:
+		<textarea id="pole" rows="5"></textarea>
+		<br>
+		<button class="dcd" onclick=
+		"run()">Посмотреть</button>
+		Ширина клетки:
+		<input type="number" id="pw" min="1" value="10">
+		<br>
+		<br>
+		<br>
+		<br>
+		<table id="decoded"></table>
+		<script type="text/javascript">
+			var tbl = document.getElementById("decoded");
+			var pole = document.getElementById("pole");
+			var pw = document.getElementById("pw");
+			var dbg = document.getElementById("dbg");
+
+			function run(){
+				tbl.innerHTML = compile(pole.value, pw.value);
+			}
+		</script>
+	</body>
+</html>
