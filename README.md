@@ -15,6 +15,6 @@ Next paint your image on the paper with cells using this list of colors:
   <li>Green</li> <li>Blue</li> <li>Orange</li> <li>Pink</li> 
 </ul>
 <br>
-Check every cell from up-left, and write id of color (like in list starting from 0).
-Make string "<b>width</b>/<b>string of id's</b>"
+Check every cell from up-left, and write id of color (like in list starting from 0).<br>
+Make string "<b>width</b>/<b>string of id's</b>"<br>
 Allright! Just paste your string into the parser and look for your image!
