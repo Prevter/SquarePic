@@ -30,6 +30,12 @@
 			.pnk{
 				background:pink;
 			}
+			.lbl{
+				background:lightblue;
+			}
+			.prp{
+				background: purple;
+			}
 			td{
 				margin:0px;
 				border:0px;
@@ -59,6 +65,7 @@
 	</head>
 	<body>
 		<script type="text/javascript" src="sp.js"></script>
+		<div id="ui">
 		Введите код картинки:
 		<textarea id="pole" rows="5"></textarea>
 		<br>
@@ -67,16 +74,24 @@
 		Ширина клетки:
 		<input type="number" id="pw" min="1" value="10">
 		<br>
+		<button onclick="printImage()">Печать</button>
 		<br>
 		<br>
 		<br>
+</div>
 		<table id="decoded"></table>
 		<script type="text/javascript">
 			var tbl = document.getElementById("decoded");
 			var pole = document.getElementById("pole");
 			var pw = document.getElementById("pw");
 			var dbg = document.getElementById("dbg");
-
+			var ui = document.getElementById("ui");
+			
+			function printImage(){
+				ui.style.display = "none";
+				window.print();
+				ui.style.display = "";
+			}
 			function run(){
 				tbl.innerHTML = compile(pole.value, pw.value);
 			}

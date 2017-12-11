@@ -23,19 +23,36 @@ function compile(pole,pw, debug=false){
 				html += "<td class='rd' style='padding:"+pw+"px;'></td>";
 			}
 			else if(img[itr]=="4"){
-				html += "<td class='ylw' style='padding:"+pw+"px;'></td>";
-			}
-			else if(img[itr]=="5"){
-				html += "<td class='grn' style='padding:"+pw+"px;'></td>";
-			} 
-			else if(img[itr]=="6"){
-				html += "<td class='bl' style='padding:"+pw+"px;'></td>";
-			}
-			else if(img[itr]=="7"){
 				html += "<td class='orn' style='padding:"+pw+"px;'></td>";
 			}
+			else if(img[itr]=="5"){
+				html += "<td class='ylw' style='padding:"+pw+"px;'></td>";
+			} 
+			else if(img[itr]=="6"){
+				html += "<td class='grn' style='padding:"+pw+"px;'></td>";
+			}
+			else if(img[itr]=="7"){
+				html += "<td class='lbl' style='padding:"+pw+"px;'></td>";
+			}
 			else if(img[itr]=="8"){
+				html += "<td class='bl' style='padding:"+pw+"px;'></td>";
+			}
+			else if(img[itr]=="9"){
+				html += "<td class='prp' style='padding:"+pw+"px;'></td>";
+			}
+			else if(img[itr]=="a"){
 				html += "<td class='pnk' style='padding:"+pw+"px;'></td>";
+			}
+			else if(img[itr]=="#"){
+				varder = "";
+				varder += img[itr+1];
+				varder += img[itr+2];
+				varder += img[itr+3];
+				varder += img[itr+4];
+				varder += img[itr+5];
+				varder += img[itr+6];
+				html += "<td style='padding:"+pw+"px; background:#"+varder+";'></td>";
+				itr += 6;
 			}
 			itr++;
 		}
