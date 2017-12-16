@@ -6,14 +6,19 @@ Example string:
 ### How to do this:<br>
 First number before "/" is for setting width of image.
 Next paint your image on the paper with cells using this list of colors:
-<ul>
-  <li>White</li> 
-  <li>Black</li> 
-  <li>Grey</li> 
-  <li>Red</li> 
-  <li>Yellow</li> 
-  <li>Green</li> <li>Blue</li> <li>Orange</li> <li>Pink</li> 
-</ul>
+ 0. White
+ 1. Black
+ 2. Grey
+ 3. Red
+ 4. Orange
+ 5. Yellow
+ 6. Green
+ 7. Light blue
+ 8. Blue
+ 9. Purple
+ a. Pink
+ + HEX colors (six chars width)
+</ol>
 <br>
 Check every cell from up-left, and write id of color (like in list starting from 0).<br>
 Make string "<b>width</b>/<b>string of id's</b>"<br>
