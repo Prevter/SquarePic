@@ -16,8 +16,8 @@ Next paint your image on the paper with cells using this list of colors:
  7. Light blue
  8. Blue
  9. Purple
- a. Pink
- "+" HEX colors (six chars width)
+ a. Pink<br>
+ + HEX colors (six chars width)
 </ol>
 <br>
 Check every cell from up-left, and write id of color (like in list starting from 0).<br>
