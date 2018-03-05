@@ -1,7 +1,7 @@
 <html>
 	<head>
-		<meta name="viewport" content=
-"width=device-width, initial-scale=1">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta charset=utf-8>
 		<style type="text/css">
 			.blk{
 				background:black;
@@ -65,6 +65,50 @@
 	</head>
 	<body>
 		<script type="text/javascript" src="sp.js"></script>
+		<script type="text/javascript">
+			function id(i){return document.getElementById(i)}
+			function componentToHex(c) {
+   			var hex = c.toString(16);
+    			return hex.length == 1 ? "0" + hex : hex;
+			}
+			function rgb2hex(r, g, b) {
+				return "#" + componentToHex(r) + componentToHex(g) + componentToHex(b);
+			}
+			function png2sp(file,elem){
+				var d = document,
+    			canvas = d.createElement('canvas'),
+    			ctx = canvas.getContext('2d'),
+				img = new Image(),
+				out = id(elem);
+				alert(out);
+				img.onload = function() {
+					result = img.width+1+"/";
+					canvas.width = img.width;
+					canvas.height = img.height;
+					id(elem).innerHTML = img.width+1+"/";
+					ctx.drawImage(img, 0, 0);
+					var data = ctx.getImageData(0, 0, canvas.width, canvas.height).data;
+					for(y=0;y<=canvas.height;y++){
+						for(x=0;x<=canvas.width;x++){
+							i = (x + y * canvas.width)*4;
+							if(rgb2hex(data[i],data[i+1],data[i+2]) == "#ffffff" || data[i+3]==0){
+							id(elem).innerHTML += "0";
+							}
+							else if(rgb2hex(data[i],data[i+1],data[i+2]) == "#000000"){
+							id(elem).innerHTML += "1";
+							}
+							else{
+							id(elem).innerHTML += rgb2hex(data[i],data[i+1],data[i+2]);
+							}
+						}
+						//alert(result);
+						//id("code").innerHTML = result;
+					}
+					d.body.appendChild(canvas);
+   			 }
+   	 	img.src = URL.createObjectURL( file );
+		}
+		</script>
 		<div id="ui">
 		Введите код картинки:
 		<textarea id="pole" rows="5"></textarea>
@@ -74,13 +118,13 @@
 		Ширина клетки:
 		<input type="number" id="pw" min="1" value="10">
 		<br>
-		<button onclick="printImage()">Печать</button>
+		Импорт из картинки:<input type="file" id="input" onchange="png2sp(files[0], 'pole');"/>Загрузить:<input type="file" id="input" onchange="loadFile(files[0]);"/>
 		<br>
 		<br>
 		<br>
 </div>
 		<table id="decoded"></table>
-		<script type="text/javascript">
+		<script>
 			var tbl = document.getElementById("decoded");
 			var pole = document.getElementById("pole");
 			var pw = document.getElementById("pw");
@@ -94,6 +138,17 @@
 			}
 			function run(){
 				tbl.innerHTML = compile(pole.value, pw.value);
+			}
+			function loadFile(file){
+				var reader = new FileReader();
+				reader.onload = function(event) {
+					var contents = event.target.result;
+					pole.innerHTML = contents;
+				};
+				reader.onerror = function(event) {
+					console.error("Файл не может быть прочитан! код " + event.target.error.code);
+				};
+				reader.readAsText(file);
 			}
 		</script>
 	</body>
