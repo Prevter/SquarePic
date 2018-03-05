@@ -60,6 +60,37 @@
 				width:20%:
 				margin:0px;
 			}
+			.file-upload {
+				position: relative; /* Даем возможность делать позиционирование, внутри данного элемента */
+				overflow: hidden; /* Все что выходит за пределы - скрываем */
+				width: 20%; /* Задаем ширину кнопки выбора файла */
+				height: 20px; /* Задаем высоту кнопки выбора файла */
+				background: #6da047;
+				border-radius: 3px;
+				padding: 8px 4px;
+				color: #fff;
+				text-align: center;
+				width: 100%;
+			}
+			.file-upload:hover {
+				background: #7aad55;
+			}
+			.file-upload input[type="file"]{
+				display: none; /* Обязательно скрываем настоящий Input File */
+			}
+			.file-upload label {
+				/* Растягиваем label на всю возможную площадь блока .file-upload */
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				cursor: pointer;
+			}
+			.file-upload span {
+				line-height: 36px; /* Делаем вертикальное выравнивание текста, который написан на кнопке */
+			}
 		</style>
 		<title>SquarePic</title>
 	</head>
@@ -118,7 +149,21 @@
 		Ширина клетки:
 		<input type="number" id="pw" min="1" value="10">
 		<br>
-		Импорт из картинки:<input type="file" id="input" onchange="png2sp(files[0], 'pole');"/>Загрузить:<input type="file" id="input" onchange="loadFile(files[0]);"/>
+		<div class="files">
+			<div class="file-upload">
+				<label>
+					<input type="file" onchange="loadFile(files[0]);"/>
+					<span>Загрузить</span>
+				</label>
+			</div>
+			<br>
+			<div class="file-upload">
+				<label>
+					<input type="file" onchange="png2sp(files[0], 'pole');"/>
+					<span>Импорт</span>
+				</label>
+			</div>
+		</div>
 		<br>
 		<br>
 		<br>
